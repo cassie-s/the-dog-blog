@@ -1,0 +1,5 @@
+CREATE TABLE dogs{
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    dog_name VARCHAR(30),
+    dog_age INTERGER(10),
+};
