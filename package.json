@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/cassie-s/the-dog-blog#readme",
   "dependencies": {
+    "uikit": "^3.9.3",
+    "yarn": "^1.22.17",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",

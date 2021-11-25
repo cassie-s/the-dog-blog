@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const mysql = require('mysql2');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,6 +33,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("./public/images"));
+
+// connecting to mysql
+
+const db = mysql.createConnection(
+  {
+      host:'localhost',
+      //Your Mysql username,
+      user: 'root',
+      //Your Mysql password
+      password:'',
+      database:'rating'
+  },
+  console.log('Connected to the rating database.')
+);
 
 
 // rendering images

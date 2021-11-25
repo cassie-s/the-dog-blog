@@ -6,3 +6,4 @@ VALUES
 ('Janet', 2),
 ('Furry', 4),
 ('James', 2);
+
