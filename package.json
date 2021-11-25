@@ -18,9 +18,6 @@
   },
   "homepage": "https://github.com/cassie-s/the-dog-blog#readme",
   "dependencies": {
-    "uikit": "^3.9.3",
-    "yarn": "^1.22.17",
-
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
@@ -30,7 +27,8 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
-    "session": "^0.1.0"
-
+    "session": "^0.1.0",
+    "uikit": "^3.9.3",
+    "yarn": "^1.22.17"
   }
 }
