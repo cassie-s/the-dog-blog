@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/cassie-s/the-dog-blog#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "uikit": "^3.9.3",
+    "yarn": "^1.22.17"
   }
 }
