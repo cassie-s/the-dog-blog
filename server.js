@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -42,12 +41,28 @@ const db = mysql.createConnection(
       //Your Mysql username,
       user: 'root',
       //Your Mysql password
-      password:'',
+      password:'Hannan09!!',
       database:'rating'
   },
   console.log('Connected to the rating database.')
 );
 
+
+// get dog database
+
+// app.get('api/dogs', (req, res) => {
+//   const sql = 'SELECT * FROM dogs';
+//   db.query(sql, (err, rows) => {
+//     if (err) {
+//       res.status(500).json({ error: err.message });
+//       return;
+//     }
+//     res.json({
+//       message: 'connected',
+//       data: rows
+//     });
+//   });
+// });
 
 // rendering images
 
@@ -63,7 +78,7 @@ const db = mysql.createConnection(
 //     res.render("dynamic", { imageList: imageList });
 // })
 
-app.use(require('./controllers/'));
+// app.use(require('./controllers/'));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
