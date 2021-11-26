@@ -1,5 +1,6 @@
-CREATE TABLE dogs{
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    dog_name VARCHAR(30),
-    dog_age INTERGER(10),
-};
+CREATE TABLE dogs (
+    id Integer(11) AUTO_INCREMENT PRIMARY KEY, 
+    dogName VARCHAR(30) NOT NULL,
+    dogAge INTEGER(11)
+);
+
