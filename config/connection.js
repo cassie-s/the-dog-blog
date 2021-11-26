@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const mysql = require('mysql2');
 
 require('dotenv').config();
 
@@ -10,5 +11,20 @@ const sequelize = process.env.JAWSDB_URL
       dialect: 'mysql',
       port: 3306
     });
+
+// connecting to mysql
+
+const db = mysql.createConnection(
+  {
+      host:'localhost',
+      //Your Mysql username,
+      user: 'root',
+      //Your Mysql password
+      password:'Hannan09!!',
+      database:'rating'
+  },
+  console.log('Connected to the rating database.')
+);
+
 
 module.exports = sequelize;
