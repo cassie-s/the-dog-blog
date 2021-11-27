@@ -12,19 +12,7 @@ const sequelize = process.env.JAWSDB_URL
       port: 3306
     });
 
-// connecting to mysql
 
-const db = mysql.createConnection(
-  {
-      host:'localhost',
-      //Your Mysql username,
-      user: 'root',
-      //Your Mysql password
-      password:'Hannan09!!',
-      database:'rating'
-  },
-  console.log('Connected to the rating database.')
-);
 
 
 module.exports = sequelize;
