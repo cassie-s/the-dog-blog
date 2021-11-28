@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
+    // exclude password in results
     attributes: { exclude: ['password'] }
   })
     .then(dbUserData => res.json(dbUserData))
@@ -14,6 +15,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get user by id
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -118,7 +120,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
