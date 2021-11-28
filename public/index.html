@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Dog Blog</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate My Dog</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/css/uikit.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/uikit.min.js"></script>
-    </head>
+    <link rel="stylesheet" href="uikit.min.css" />
+</head>
+<div class="style" style="background-color: lightblue;">
+<header>
+   <h1 class="uk-heading-large uk-text-center"><span>Rate My Dog</span></h1>
+    <button class="uk-align-center" id="login-button">Log In To Rate</button>
 
-    <body>
+</header>
+<body>
+    
+<div class="uk-text-center" id="dog-container" style="background-color: grey;">
+    <div class="dog-one" id="dog-one">
+    <img src="./images/dog1.jpg">
+    <div class="dog-one-rate" id="dog-one-rate">
+    <a href="./webPages/henry.html"><button id="dog-one">Rate This Dog</button></a>
+    </div>
+    </div>
+    
+    <div class="dog-two" id="dog-two">
+    <img src="./images/dog2.jpg">
+    <div class="dog-two-rate" id="dog-two-rate">
+    <a href="./webPages/snowball.html"><button id="dog-two">Rate This Dog</button></a>
+    </div>
+    </div>
 
-<!-- This is an anchor toggling the modal -->
-<a href="images/dog1.jpg" uk-toggle><img src="images/dog1.jpg" width="300" height="300" alt="Henry" uk-img></a>
-<a href="images/dog2.jpg" uk-toggle><img src="images/dog2.jpg" width="300" height="300" alt="Snowball" uk-img></a>
-<a href="images/dog3.jpg" uk-toggle><img src="images/dog3.jpg" width="300" height="300" alt="Mayo" uk-img></a>
-<a href="images/dog4.jpg" uk-toggle><img src="images/dog4.jpg" width="300" height="300" alt="Janet" uk-img></a>
-<a href="images/dog5.jpg" uk-toggle><img src="images/dog5.jpg" width="300" height="300" alt="Furry" uk-img></a>
-<a href="images/dog6.jpg" uk-toggle><img src="images/dog6.jpg" width="300" height="300" alt="James" uk-img></a>
+    <div class="dog-three" id="dog-three">
+    <img src="./images/dog3.jpg">
+    </div>
+    <div class="dog-three-rate" id="dog-three-rate">
+    <a href="./webPages/mayo.html"><button id="dog-three">Rate This Dog</button></a>
+    </div>
+    
+    <div class="dog-four" id="dog-four">
+    <img src="./images/dog4.jpg">
+    </div>
+    <div class="dog-four-rate" id="dog-four-rate">
+    <a href="./webPages/janet.html"><button id="dog-five">Rate This Dog</button></a>
+    </div>
+</div>
 
+</body>
+<footer>
+    <h1 class="uk-heading-medium uk-text-center"><span> Uglier Dogs Coming Soon!</span></h1>
+    -
+</footer>
+</div>
+</html>
 
-    </body>
-    </html>
