@@ -4,6 +4,9 @@ const sequelize = require('../config/connection');
 
 // rendering all posts to homepage
 router.get('/', (req, res) => {
+  res.render('homepage')
+});
+router.get('/', (req, res) => {
     console.log(req.session);
 
     Post.findAll({
