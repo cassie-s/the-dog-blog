@@ -1,6 +1,7 @@
+// Dependencies
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 // create our User model
 class User extends Model {
@@ -10,9 +11,10 @@ class User extends Model {
   }
 }
 
-// create fields/columns for User model
+// define table columns and configuration
 User.init(
   {
+    // Table columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -39,19 +41,21 @@ User.init(
       }
     }
   },
- {
-  hooks: {
-    // set up ceforeCreate lifecycle hook functionality
-    async beforeCreate(newUserData) {
-      newUserData.password = await bcrypt.hash(newUserData.password, 10);
-      return newUserData;
+
+  {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      // set up beforeUpdate lifecycle "hook" functionality
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      }
     },
-    // set up beforeUpdate lifecycle hook funcionality
-    async beforeUpdate(updatedUserData) {
-      updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-      return updatedUserData;
-    }
-  },
+    // Table configuration
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -60,4 +64,5 @@ User.init(
   }
 );
 
+// Exports
 module.exports = User;
