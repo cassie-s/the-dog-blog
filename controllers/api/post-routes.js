@@ -1,6 +1,10 @@
 // Dependencies
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Vote} = require('../../models');
+const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
+const { route } = require('..');
+
 
 // get all users
 router.get('/', (req, res) => {
@@ -77,10 +81,20 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.put('/:id', (req, res) => {
-    Post.update(
-      {
-        title: req.body.title
+
+// UPDATE a post
+route.put('/upVote', (req, res) => {
+  Post.upvote(req.boday, { vote })
+  .then(updatedPostData => res.json(updatedPostData))
+  .catch(err => {
+    res.json(err);
+    res.status(400).json(err);
+});
+router.put('/:id', withAuth, (req, res) => {
+    Post.update({
+        title: req.body.title,
+        post_text: req.body.post_text
+
       },
       {
         where: {
@@ -101,7 +115,9 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.delete('/:id', (req, res) => {
+// DELETE A post 
+router.delete('/:id', withAuth, (req, res) => {
+
     Post.destroy({
       where: {
         id: req.params.id
@@ -120,5 +136,4 @@ router.get('/', (req, res) => {
       });
   });
 
-  // Exports
-  module.exports = router;
+module.exports = router;
