@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
+const { route } = require('..');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -96,6 +97,13 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // UPDATE a post
+route.put('/upVote', (req, res) => {
+  Post.upvote(req.boday, { vote })
+  .then(updatedPostData => res.json(updatedPostData))
+  .catch(err => {
+    res.json(err);
+    res.status(400).json(err);
+});
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
         title: req.body.title,
@@ -118,6 +126,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+
 // DELETE A post 
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
@@ -135,5 +144,6 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
