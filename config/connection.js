@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const mysql = require('mysql2');
 
 require('dotenv').config();
 
@@ -10,5 +11,8 @@ const sequelize = process.env.JAWSDB_URL
       dialect: 'mysql',
       port: 3306
     });
+
+
+
 
 module.exports = sequelize;
