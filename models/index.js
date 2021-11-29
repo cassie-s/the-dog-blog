@@ -1,6 +1,6 @@
 // const Vote = require('./Vote');
  const User = require('./User');
-// const Post = require('./Post');
+ const Post = require('./Post');
 // const Comment = require('./Comment');
 
 // // create associations
@@ -56,4 +56,4 @@
 //     foreignKey: 'post_id'
 //   });
 
- module.exports = { User };
+ module.exports = { User, Post };
