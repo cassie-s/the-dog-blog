@@ -1,6 +1,6 @@
 // Dependencies
 const router = require('express').Router();
-const { Post, User, Comment, Vote} = require('../../models');
+const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 const { route } = require('..');
@@ -95,8 +95,8 @@ router.get('/', (req, res) => {
 
 
 // UPDATE a post
-route.put('/upVote', (req, res) => {
-  Post.upvote(req.boday, { vote })
+router.put('/upVote', (req, res) => {
+  Post.upvote(req.body, { Vote })
   .then(updatedPostData => res.json(updatedPostData))
   .catch(err => {
     res.json(err);
