@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Post, User, Comment} = require('../../models');
+const { Post, User, Comment, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
+const { route } = require('..');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -11,7 +12,8 @@ router.get('/', (req, res) => {
       attributes: ['id', 
                    'post_text',
                    'title',
-                   'created_at'
+                   'created_at',
+                   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),'vote_count']
                 ],
       // show latest news first
       order: [['created_at', 'DESC']],
@@ -49,7 +51,8 @@ router.get('/:id', (req, res) => {
       attributes: ['id', 
                    'post_text', 
                    'title',
-                   'created_at'
+                   'created_at',
+                   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),'vote_count']
                 ],
       include: [
         {
@@ -94,6 +97,30 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // UPDATE a post
+route.put('upVote', (req, res) => {
+  Vote.create({
+    user_id: req.body.user_id,
+    post_id: req.body.post_id
+  }).then(() => {
+    return Post.findOne({
+      where: {
+        id: req.body.post_id
+      },
+      attributes: [
+        'id',
+        'post_url',
+        'title',
+        'created_at',
+        [
+          sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),'vote_count'
+        ]
+      ]
+    })
+  .then(dbPostData => res.json(dbPostData))
+  .catch(err => {
+    res.json(err);
+    res.status(400).json(err);
+});
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
         title: req.body.title,
@@ -116,6 +143,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+
 // DELETE A post 
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
@@ -133,5 +161,6 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
