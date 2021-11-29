@@ -4,12 +4,15 @@ const sequelize = require('../config/connection');
 
 // rendering all posts to homepage
 router.get('/', (req, res) => {
+  res.render('homepage')
+});
+router.get('/', (req, res) => {
     console.log(req.session);
 
     Post.findAll({
         attributes: [
           'id',
-          'post_text',
+          'post_url',
           'title',
           'created_at',
           [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
