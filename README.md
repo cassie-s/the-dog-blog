@@ -6,6 +6,7 @@
   
   ## Table of Contents
   * [Installation](#installation)
+  * [Software](#software)
   * [Usage](#usage)
   * [License](#license)
   * [Contributing](#contributing)
@@ -14,10 +15,22 @@
 
 
   ## Installation
-  Use the deployed version at: https://secret-mesa-68493.herokuapp.com/.
+  Use the deployed version at: https://intense-hamlet-01251.herokuapp.com/
+
+  ## Software Used
+  * Express.js
+
+  * bcrypt
+
+  * Uikit CSS
+
+  * Heroku
+
+  * Node.js
 
   ## Usage
-  Log in or sign up to upvote or comment on your favorite ugly dog.  
+  Log in or sign up to upvote or comment on your favorite ugly dog.
+
   ![Screenshot of Application](screenshot.png)
 
   ## License
@@ -29,22 +42,3 @@
 
   This project follows the Contributor Covenant.  
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-
-## Rate My Dog
-
-## Description
-
-## Software Used
-Express.js
-
-bcrypt
-
-Uikit CSS
-
-Heroku
-
-Node.js
-
-
-
-## Contributors
