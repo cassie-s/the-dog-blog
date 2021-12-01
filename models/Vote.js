@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, Datatypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Vote extends Model {}
@@ -6,12 +6,12 @@ class Vote extends Model {}
 Vote.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: Datatypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: Datatypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
@@ -19,7 +19,7 @@ Vote.init(
             }
         },
         post_id: {
-            type: DataTypes.INTEGER,
+            type: Datatypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'post',
@@ -35,4 +35,3 @@ Vote.init(
         modelName: 'vote'
     }
 );
-module.exports = Vote;
