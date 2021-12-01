@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("./public/images"));
 app.use(routes);
 
+
 // get dog database
 
 // app.get('api/dogs', (req, res) => {
