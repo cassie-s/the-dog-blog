@@ -23,6 +23,7 @@ const sess = {
 app.use(session(sess));
 
 const helpers = require('./utils/helpers');
+const { response } = require('express');
 
 const hbs = exphbs.create({ helpers });
 
@@ -51,7 +52,33 @@ app.use(routes);
 //   });
 // });
 
-// rendering images
+// rendering dog pages
+app.get('/', (req, res) => {
+  res.render('homepage', data);
+});
+app.get("/henry", (req, res) => {
+  res.render('henry');
+});
+app.get('/', (req, res) => {
+  res.render('homepage', data);
+});
+app.get("/snowball", (req, res) => {
+  res.render('snowball');
+});
+app.get('/', (req, res) => {
+  res.render('homepage', data);
+});
+app.get("/mayo", (req, res) => {
+  res.render('mayo');
+});
+
+app.get('/', (req, res) => {
+  res.render('homepage', data);
+});
+app.get("/janet", (req, res) => {
+  res.render('janet');
+});
+
 
 // app.get("/static", (req, res) => {
 //     res.render("static");
