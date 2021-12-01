@@ -1,4 +1,3 @@
-
 ## Rate My Dog
 
 ## Description

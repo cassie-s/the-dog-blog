@@ -1,6 +1,6 @@
 // Dependencies
 const router = require('express').Router();
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comment, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 const { route } = require('..');
@@ -95,16 +95,13 @@ router.get('/', (req, res) => {
 
 
 // UPDATE a post
-router.put('/upVote', (req, res) => {
-  if (req.session){
-  Post.upvote({...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-  .then(updatedVoteData => res.json(updatedVoteData))
+route.put('/upVote', (req, res) => {
+  Post.upvote(req.boday, { vote })
+  .then(updatedPostData => res.json(updatedPostData))
   .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
+    res.json(err);
+    res.status(400).json(err);
   });
-}
-});
 
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
@@ -129,6 +126,7 @@ router.put('/:id', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+})
 });
 
 
