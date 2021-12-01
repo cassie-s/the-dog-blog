@@ -14,9 +14,12 @@
 <body>
   <div class="wrapper">
 <header>
-   <h1 class="uk-heading-large uk-text-center"><span>Rate My Dog</span></h1>
-   <button id="logout" class="uk-position-top-right uk-button uk-button-default uk-button-small">logout</button>
-   <a href="/login"><button id="logout" class="uk-position-top-left uk-button uk-button-default uk-button-small">Log In To Rate</button></a>
+   <h1 class="uk-heading-large uk-text-center uk-margin-medium-top"><span>Rate My Dog</span></h1>
+   <div class="uk-position-top-center" id="buttons">
+   <a href="/login"><button id="login" class="uk-text-center uk-button uk-button-default uk-button-small">Log In To Rate</button></a>
+   <a href="/sign_up"><button id="sign_up" class="uk-text-center uk-button uk-button-default uk-button-small">Sign Up To Rate</button></a>
+   <a href="/logout"><button id="logout" class="uk-text-center uk-button uk-button-default uk-button-small">Log Out</button></a>
+   </div>
     <main>
       {{{ body }}}
     </main>
