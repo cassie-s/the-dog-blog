@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="style" style="background-color: lightsteelblue;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,20 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="uikit.min.css" />
 </head>
+<header>
+   <h1 class="uk-heading-large uk-text-center uk-margin-medium-top"><span>Rate My Dog</span></h1>
+   <div class="uk-position-top-center" id="buttons">
+   <a href="/login"><button id="login" class="uk-text-center uk-button uk-button-default uk-button-small">Log In To Rate</button></a>
+   <a href="/sign_up"><button id="sign_up" class="uk-text-center uk-button uk-button-default uk-button-small">Sign Up To Rate</button></a>   </div>
+    <main>
+      {{{ body }}}
+    </main>
+</div>
 
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</header>
 <body>
     
 <div class="uk-text-center" id="dog-container" style="background-color: grey;">
