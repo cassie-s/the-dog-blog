@@ -36,23 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("./public/images"));
 app.use(routes);
 
-
-// get dog database
-
-// app.get('api/dogs', (req, res) => {
-//   const sql = 'SELECT * FROM dogs';
-//   db.query(sql, (err, rows) => {
-//     if (err) {
-//       res.status(500).json({ error: err.message });
-//       return;
-//     }
-//     res.json({
-//       message: 'connected',
-//       data: rows
-//     });
-//   });
-// });
-
 // rendering dog pages
 app.get('/', (req, res) => {
   res.render('homepage', data);
@@ -80,20 +63,6 @@ app.get("/janet", (req, res) => {
   res.render('janet');
 });
 
-
-// app.get("/static", (req, res) => {
-//     res.render("static");
-// });
-
-// app.get("/dynamic", (req, res) => {
-//     imageList = [];
-//     imageList.push({ src: "images/Dog1.jpeg", name: "dog1" });
-//     imageList.push({ src: "images/Dog2.jpeg", name: "dog2" });
-//     imageList.push({ src: "images/Dog3.jpeg", name: "dog3" });
-//     res.render("dynamic", { imageList: imageList });
-// })
-
-// app.use(require('./controllers/'));
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

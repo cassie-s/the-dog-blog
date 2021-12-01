@@ -37,18 +37,36 @@
           <ul class="list-group"></ul>
         </div>
       </div>
-        <textarea class="note-textarea" placeholder="Comment"></textarea>
-        <i class="fas fa-save text-light save-note"></i>
-        <div>
-          <button type="submit">Add Comment</button>
-        </div>
-      </div>
+      
+        {{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+  <div>
+    <button type="submit">Add Comment</button>
+  </div>
+</form>
+{{/if}}
+
+<div class="comments">
+  {{#each this}}
+  <section class="comment">
+    <div class="meta">
+      {{user.username}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
+
+{{#if loggedIn}} --}}
+<script async src="/javascript/comment.js"></script>
+{{/if}}
     </div>
   </div>
-
-
-
-
 
 </body>
 <footer>
@@ -56,7 +74,7 @@
     <h1 class="uk-heading-2xlarge uk-text-center"><span><a href="/">
       <button class="uk-button uk-button-default uk-button-large">Back to main page</button></span></h1></a>
 </footer>
-<script src="/javascript/comment.js"></script>
+
 </html>
 
 
