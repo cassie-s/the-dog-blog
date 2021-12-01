@@ -1,37 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  class="style" style="background-color: lightsteelblue;">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rate My Dog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="uikit.min.css" />
+
 </head>
 
 <body>
   <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Rate My Dog</a>
-      </h1>
-
-      <nav>
-        {{#if loggedIn}}
-        <a href="/" class="homepage">Homepage</a>
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/" class="homepage">Homepage</a>
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
+<header>
+   <h1 class="uk-heading-large uk-text-center"><span>Rate My Dog</span></h1>
+   <button id="logout" class="uk-position-top-right uk-button uk-button-default uk-button-small">logout</button>
+   <a href="/login"><button id="logout" class="uk-position-top-left uk-button uk-button-default uk-button-small">Log In To Rate</button></a>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
+
   </div>
 
 {{#if loggedIn}}

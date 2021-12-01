@@ -29,3 +29,22 @@
 
   This project follows the Contributor Covenant.  
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
+## Rate My Dog
+
+## Description
+
+## Software Used
+Express.js
+
+bcrypt
+
+Uikit CSS
+
+Heroku
+
+Node.js
+
+
+
+## Contributors
