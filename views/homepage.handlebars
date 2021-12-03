@@ -13,15 +13,17 @@
    <h1 class="uk-heading-large uk-text-center uk-margin-medium-top"><span>Rate My Dog</span></h1>
    <div class="uk-position-top-center" id="buttons">
    <a href="/login"><button id="login" class="uk-text-center uk-button uk-button-default uk-button-small">Log In To Rate</button></a>
-   <a href="/signup"><button id="sign_up" class="uk-text-center uk-button uk-button-default uk-button-small">Sign Up To Rate</button></a>   </div>
+   <a href="/signup"><button id="sign_up" class="uk-text-center uk-button uk-button-default uk-button-small">Sign Up To Rate</button></a> 
+   
+   </div>
     <main>
+
+        <button id="logout" class="uk-text-center uk-button uk-button-default uk-button-small uk-position-top-left">logout</button>
+        
       {{{ body }}}
     </main>
 </div>
 
-{{#if loggedIn}}
-<script src="/javascript/logout.js"></script>
-{{/if}}
 </header>
 <body>
     
@@ -64,12 +66,13 @@
     <br></br>
 
 </div>
-
-<script src="javascript/logout.js">
-</body>
 <footer>
     <h1 class="uk-heading-medium uk-text-center"><span> Uglier Dogs Coming Soon!</span></h1>
 <br></br>
 </footer>
+
+ <script src="/javascript/logout.js"></script>
+
+</body>
 
 </html>
