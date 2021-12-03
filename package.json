@@ -30,6 +30,7 @@
     "cookie": "^0.4.0",
     "cookie-signature": "^1.0.6",
     "core-util-is": "^1.0.3",
+    "db-seed": "^1.2.0",
     "debug": "^4.3.2",
     "deep-equal": "^2.0.5",
     "define-properties": "^1.1.3",
@@ -206,7 +207,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",

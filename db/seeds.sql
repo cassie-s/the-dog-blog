@@ -4,3 +4,4 @@ VALUES
 ('Snowball', 7),
 ('Mayo', 4),
 ('Janet', 2);
+
