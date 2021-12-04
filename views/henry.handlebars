@@ -37,6 +37,11 @@
           <ul class="list-group"></ul>
         </div>
       </div>
+
+      <!-- upvote container div -->
+  <div class="meta">
+   <p>This dog has {{vote_count}} ugly points</p> 
+  </div>
       
         {{!-- {{#if loggedIn}} --}}
 <form class="comment-form">
@@ -49,7 +54,11 @@
 </form>
 {{!-- {{/if}} --}}
 
-<div class="comments">
+<button type="button" class="upvote-btn">Upvote</button>
+
+
+  <!-- Comment container -->
+  <div class="comments">
   {{#each this}}
   <section class="comment">
     <div class="meta">
@@ -61,22 +70,21 @@
   </section>
   {{/each}}
 </div>
-
-{{#if loggedIn}} --}}
-<script async src="/javascript/comment.js"></script>
-{{/if}}
     </div>
   </div>
+  
 
-  <button type="button" class="upvote-btn">Upvote</button>
-
-</body>
 <footer>
 <br></br>
     <h1 class="uk-heading-2xlarge uk-text-center"><span><a href="/">
       <button class="uk-button uk-button-default uk-button-large">Back to main page</button></span></h1></a>
 </footer>
 
+{{!-- {{#if loggedIn}} --}} 
+<script async src="/javascript/comment.js"></script>
+<script async src="/javascript/upvote.js"></script>
+{{!-- {{/if}} --}}
+</body>
 </html>
 
 
