@@ -49,16 +49,16 @@
       {{!-- {{/if}} --}}
 
       <div class="comments">
-      {{#each this}}
-      <section class="comment">
-        <div class="meta">
-          {{user.username}}
-        </div>
-        <div class="text">
-          {{comment_text}}
-        </div>
-      </section>
-      {{/each}}
+        {{#each this}}
+        <section class="comment">
+          <div class="meta">
+            {{user.username}} on {{format_date created_at}}
+          </div>
+          <div class="text">
+            {{comment_text}}
+          </div>
+        </section>
+        {{/each}}
       </div>
           <button type="button" class="upvote-btn">Upvote</button>
         </div>
