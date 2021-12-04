@@ -79,7 +79,7 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.post('/', (req, res) => {
+  router.post('/', withAuth, (req, res) => { //just added withAuth
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
       title: req.body.title,
@@ -94,10 +94,11 @@ router.get('/', (req, res) => {
   });
 
 
-// UPDATE a post
-router.put('/upVote', (req, res) => {
+
+router.put('/upvote', (req, res) => {
   if (req.session){
-  Post.upvote({...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    console.log(req.session)
+  Post.upvote({...req.body, user_id: req.session.user_id }, { Vote, User })
   .then(updatedVoteData => res.json(updatedVoteData))
   .catch(err => {
     console.log(err);

@@ -9,15 +9,19 @@ Vote.init(
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
+        },	
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
+        // user_id: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+            // references: {
+            //     model: 'user',
+            //     key: 'id'
+            // }
+        //},
         post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,

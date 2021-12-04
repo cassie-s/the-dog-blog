@@ -61,15 +61,17 @@
   </section>
   {{/each}}
 </div>
-
-{{#if loggedIn}} --}}
-<script async src="/javascript/comment.js"></script>
-{{/if}}
+<form class="upvote-form">
+  <button type="submit">Upvote</button>
+</form>
     </div>
   </div>
 
-  <button type="button" class="upvote-btn">Upvote</button>
 
+<script async src="/javascript/upvote.js"></script>
+{{#if loggedIn}}
+<script async src="/javascript/comment.js"></script>
+{{/if}}
 </body>
 <footer>
 <br></br>

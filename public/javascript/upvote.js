@@ -1,5 +1,6 @@
 async function upvoteClickHandler(event) {
     event.preventDefault();
+    console.log('click')
   
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
@@ -7,8 +8,9 @@ async function upvoteClickHandler(event) {
   
     const response = await fetch('/api/posts/upvote', {
     method: 'PUT',
-    body: JSON.stringify({
-        post_id: id
+    body: JSON.stringify({ 
+      post_id: id,
+        
     }),
     headers: {
         'Content-Type': 'application/json'
@@ -16,10 +18,12 @@ async function upvoteClickHandler(event) {
     });
 
     if (response.ok) {
+    console.log('vote received')
     document.location.reload();
     } else {
+      console.log('vote didnt work')
     alert(response.statusText);
     }
-  }
+  };
 
-  document.querySelector('.upvote-btn').addEventListener('click', upVoteClickHandler);
+  document.querySelector('.upvote-form').addEventListener('submit', upvoteClickHandler);
