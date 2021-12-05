@@ -2,9 +2,9 @@ async function upvoteClickHandler(event) {
     event.preventDefault();
     console.log('click')
   
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
+//     const id = window.location.toString().split('/')[
+//       window.location.toString().split('/').length - 1
+//     ];
   
     const response = await fetch('/api/upvote', {
     method: 'PUT',

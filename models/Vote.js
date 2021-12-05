@@ -45,6 +45,7 @@ Vote.init(
             autoIncrement: true
         },	
     },
+    
     {
         sequelize,
         timestamps: false,
