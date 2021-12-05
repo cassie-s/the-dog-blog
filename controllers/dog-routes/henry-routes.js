@@ -43,6 +43,17 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
   });
+//Update upvote
+  router.put('/upVote', (req, res) => {
+    if (req.session){
+    Vote.upvote({...req.body, user_id: req.session.user_id }, { Vote, User })
+    .then(updatedVoteData => res.json(updatedVoteData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  }
+  });
 
 // POST a new comment
   router.post('/', (req, res) => {

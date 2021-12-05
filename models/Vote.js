@@ -7,28 +7,31 @@ static upvote(body, models){
           user_id: body.user_id,
           vote_id: body.vote_id
         }).then(() => {
-          return Post.findOne({
+          return Vote.findOne({
             where: {
-              id: body.post_id
+              id: body.user_id
             },
             attributes: [
-              'id',
-            [
-              sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
-              'vote_count'
+            'id',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE vote.id = vote.vote_id)',
+              'vote_count')]
             ]
-          ]
-          });
+          })
         })
-        }
-      }
-
+}
+};
 
 Vote.init(
     {
+      vote_id: {
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+          allowNull: false
+        },	
         username: {
             type: DataTypes.STRING,
-            primaryKey: true,
+            primaryKey: false,
             allowNull: false
         },
         user_id: {
@@ -38,14 +41,8 @@ Vote.init(
                 model: 'user',
                 key: 'id'
             }
-        },
-        vote_id: {
-            type: DataTypes.INTEGER,
-            primaryKey: false,
-            autoIncrement: true
-        },	
-    },
-    
+        }       
+    },  
     {
         sequelize,
         timestamps: false,

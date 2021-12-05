@@ -6,10 +6,14 @@ async function upvoteClickHandler(event) {
 //       window.location.toString().split('/').length - 1
 //     ];
   
-    const response = await fetch('/api/upvote', {
+const dog_name = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+    const response = await fetch('/api/users/vote', {
     method: 'PUT',
     body: JSON.stringify({ 
-      post_id: id,
+      //dog_name: dog_name,
+      vote_id: id,
         
     }),
     headers: {
