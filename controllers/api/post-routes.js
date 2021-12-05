@@ -15,7 +15,7 @@
 //                    'post_text',
 //                    'title',
 //                    'created_at',
-//                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),'vote_count']
+//                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE vote.id = vote.vote_id)'),'vote_count']
 //                 ],
 //       // show latest news first
 //       order: [['created_at', 'DESC']],

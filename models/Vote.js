@@ -1,35 +1,49 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vote extends Model {}
+class Vote extends Model {
+static upvote(body, models){
+        return models.Vote.create({
+          user_id: body.user_id,
+          vote_id: body.vote_id
+        }).then(() => {
+          return Post.findOne({
+            where: {
+              id: body.post_id
+            },
+            attributes: [
+              'id',
+            [
+              sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+              'vote_count'
+            ]
+          ]
+          });
+        })
+        }
+      }
+
 
 Vote.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },	
-        // username: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        //   },
-        user_id: {
+        username: {
             type: DataTypes.STRING,
+            primaryKey: true,
+            allowNull: false
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
-       }
-        // post_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'post',
-        //         key: 'id'
-        //     }
-        // }
+        },
+        vote_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: false,
+            autoIncrement: true
+        },	
     },
     {
         sequelize,
