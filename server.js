@@ -17,10 +17,8 @@ const sess = {
     db: sequelize
   })
 };
-
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 app.use(session(sess));
 
 const helpers = require('./utils/helpers');
@@ -35,7 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
