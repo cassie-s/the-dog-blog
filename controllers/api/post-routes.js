@@ -97,8 +97,7 @@ router.get('/', (req, res) => {
 
 router.put('/upvote', (req, res) => {
   if (req.session){
-    console.log(req.session)
-  Post.upvote({...req.body, user_id: req.session.user_id }, { Vote, User })
+    Post.upvote({...req.body, user_id: req.session.user_id }, { Vote, User })
   .then(updatedVoteData => res.json(updatedVoteData))
   .catch(err => {
     console.log(err);
