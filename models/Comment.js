@@ -10,7 +10,7 @@ Comment.init(
       // columns will go here
       id: {
           type: DataTypes.INTEGER,
-          allowNull: false, 
+          allowNull: false,
           primaryKey: true,
           autoIncrement: true
         },
@@ -18,7 +18,7 @@ Comment.init(
           type: DataTypes.STRING,
           allowNull: false,
           validate: {
-              len: [1]
+              len: [1, 100]
           }
       },
       user_id: {
@@ -28,8 +28,11 @@ Comment.init(
             model: 'user',
             key: 'id'
           }
-        }
-  
+        },
+      dog_name: {
+          type: DataTypes.STRING,
+          allowNull: false
+      }
     },
   
     {

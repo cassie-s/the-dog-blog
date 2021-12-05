@@ -1,5 +1,5 @@
 //Dependencies
-const { User, Comment, Vote } = require('../models');
+const { User, Comment, Vote } = require('../../models');
 const router = require('express').Router();
 
 // GET all comments
