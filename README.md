@@ -15,7 +15,7 @@
 
 
   ## Installation
-  Use the deployed version at: https://intense-hamlet-01251.herokuapp.com/
+  Use the deployed version at: https://secret-sea-39551.herokuapp.com/
 
   ## Software Used
   * Express.js
