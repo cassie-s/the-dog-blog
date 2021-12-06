@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
      })
     .then(dbCommentData => {
       const comments = dbCommentData.map(comment => comment.get({ plain: true }));
-      res.render('henry', {
+      res.render('snowball', {
         comments
       });
     })
