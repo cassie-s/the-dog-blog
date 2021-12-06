@@ -1,5 +1,0 @@
-DROP DATABASE IF EXISTS rating;
-
-CREATE DATABASE rating;
-
-USE rating;
